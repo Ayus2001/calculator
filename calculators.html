@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        .main{
+            margin-top: 100px;
+            margin-left: 38%;
+            height: 600px;
+            width:380px;
+            border:1px solid black;
+            background-color: black;
+            
+        }
+      .display{
+        font-size: 35px;
+        border:1px solid black;
+        height:80px;
+        width:370px;
+        padding:5px;
+        color: white;
+      }
+      .buttons{
+        margin-top: 50px;
+        padding: 2px;
+        display: grid;
+        gap: 10px;
+       grid-template-columns: repeat(4,1fr);
+      }
+      button{
+        font-size: 30px;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+      }
+      #whi{
+       
+        background-color: rgb(244, 244, 244);
+      }
+      #yel{
+        color: white;
+        background-color: gold;
+      }
+      #grey{
+        color: white;
+        background-color: rgb(51, 50, 50);
+      }
+    </style>
+</head>
+<body>
+    <div class="main">
+<div class="display">
+
+</div>
+<div class="buttons">
+<button class ="ac"id="whi">AC</button>
+<button id="whi" >+/-</button>
+<button  id="whi">%</button>
+<button id="yel">/</button>
+<button class="nine" id="grey" >9</button>
+<button id="grey">8</button>
+<button id="grey">7</button>
+
+<button id="yel" >*</button>
+<button id="grey">6</button>
+<button id="grey">5</button>
+<button id="grey">4</button>
+<button id="yel" >-</button>
+<button id="grey">3</button>
+<button id="grey">2</button>
+<button id="grey">1</button>
+<button id="yel" >+</button>
+<button id="grey">0</button>
+<button id="grey" >.</button>
+<button id="yel" >=</button>
+
+</div>
+
+
+    </div>
+    <script>
+let display=document.querySelector(".display");
+let p=document.createElement("p");
+display.append(p);
+let buttons=document.querySelectorAll("button");
+buttons.forEach(button=>{
+    button.addEventListener("click",()=>{
+    let buttonText=button.innerText;
+    if(buttonText==="AC"){
+        display.innerText="0 "
+    }else if(buttonText==="="){
+        display.innerText=eval(display.innerText);
+    }else{
+       display.innerText+=button.innerText;
+    }
+
+    });
+});
+
+let ac=document.querySelector(".ac");
+ac.addEventListener("dblclick",()=>{
+    display.innerText="";
+   
+})
+
+
+
+    </script>
+</body>
+</html>
